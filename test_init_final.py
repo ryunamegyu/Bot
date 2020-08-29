@@ -15,6 +15,8 @@ from oauth2client.service_account import ServiceAccountCredentials #정산
 from io import StringIO
 import urllib.request
 from math import ceil, floor
+from boto3 import client
+
 
 ##################### 로깅 ###########################
 log_stream = StringIO()    
@@ -430,20 +432,26 @@ channel = ''
 
 #mp3 파일 생성함수(gTTS 이용, 남성목소리)
 async def MakeSound(saveSTR, filename):
-	
-	tts = gTTS(saveSTR, lang = 'ko')
-	tts.save('./' + filename + '.wav')
-	
-	'''
-	try:
-		encText = urllib.parse.quote(saveSTR)
-		urllib.request.urlretrieve("https://clova.ai/proxy/voice/api/tts?text=" + encText + "%0A&voicefont=1&format=wav",filename + '.wav')
-	except Exception as e:
-		print (e)
-		tts = gTTS(saveSTR, lang = 'ko')
-		tts.save('./' + filename + '.wav')
-		pass
-	'''
+# 기존방식	
+#	tts = gTTS(saveSTR, lang = 'ko')
+#	tts.save('./' + filename + '.wav')
+# 아마존 aws
+    polly = client("polly", aws_access_key_id = "AKIA4QRVLZNACL6OH7VB", aws_secret_access_key = "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", region_name = "eu-west-1")
+
+    s = '<speak><prosody rate="' + str(100) + '%">' +  saveSTR + '</prosody></speak>'
+
+    response = polly.synthesize_speech(
+        TextType = "ssml",
+        Text=s,
+        OutputFormat="mp3",
+        VoiceId="Seoyeon")
+
+    stream = response.get("AudioStream")
+
+    with open(f"./{filename}.mp3", "wb") as mp3file:
+        data = stream.read()
+        mp3file.write(data)
+
 #mp3 파일 재생함수	
 async def PlaySound(voiceclient, filename):
 	source = discord.FFmpegPCMAudio(filename)
@@ -1804,7 +1812,10 @@ class mainCog(commands.Cog):
 			sayMessage = msg
 			await MakeSound(ctx.message.author.display_name +'님이, ' + sayMessage, './sound/say')
 			await ctx.send("```< " + ctx.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
-			await PlaySound(ctx.voice_client, './sound/say.wav')
+		# 기존 남자	
+		#	await PlaySound(ctx.voice_client, './sound/say.wav')
+		# 아마존 aws 여자
+			await PlaySound(ctx.voice_client, './sound/say.mp3')
 		else:
 			return
 
