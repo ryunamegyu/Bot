@@ -2971,7 +2971,7 @@ class mainCog(commands.Cog):
 	async def brother1_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/아덴자리체.mp3')
 	
-	@commands.command(name='/오렌')
+	@commands.command(name='/오렌자')
 	async def brother1_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/오렌자리체.mp3')
 					
