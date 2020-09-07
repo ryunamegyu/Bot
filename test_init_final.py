@@ -2956,23 +2956,23 @@ class mainCog(commands.Cog):
 
 	################ ?????????????? ################ 
 	@commands.command(name='/글루자')
-	async def brother1_(self, ctx):
+	async def jari1_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/글루자리체.mp3')
 	
 	@commands.command(name='/기란자')
-	async def brother1_(self, ctx):
+	async def jari2_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/기란자리체.mp3')
 	
 	@commands.command(name='/디온자')
-	async def brother1_(self, ctx):
+	async def jari3_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/디온자리체.mp3')
 	
 	@commands.command(name='/아덴자')
-	async def brother1_(self, ctx):
+	async def jari4_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/아덴자리체.mp3')
 	
 	@commands.command(name='/오렌자')
-	async def brother1_(self, ctx):
+	async def jari5_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/오렌자리체.mp3')
 					
 	@commands.command(name='!오빠')
