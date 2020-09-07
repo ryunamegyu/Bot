@@ -2955,6 +2955,26 @@ class mainCog(commands.Cog):
 		return await ctx.send(result_rock_paper_scissors)
 
 	################ ?????????????? ################ 
+	@commands.command(name='/글루자')
+	async def brother1_(self, ctx):
+		await PlaySound(ctx.voice_client, './sound/글루자리체.mp3')
+	
+	@commands.command(name='/기란자')
+	async def brother1_(self, ctx):
+		await PlaySound(ctx.voice_client, './sound/기란자리체.mp3')
+	
+	@commands.command(name='/디온자')
+	async def brother1_(self, ctx):
+		await PlaySound(ctx.voice_client, './sound/디온자리체.mp3')
+	
+	@commands.command(name='/아덴자')
+	async def brother1_(self, ctx):
+		await PlaySound(ctx.voice_client, './sound/아덴자리체.mp3')
+	
+	@commands.command(name='/오렌')
+	async def brother1_(self, ctx):
+		await PlaySound(ctx.voice_client, './sound/오렌자리체.mp3')
+					
 	@commands.command(name='!오빠')
 	async def brother1_(self, ctx):
 		await PlaySound(ctx.voice_client, './sound/오빠.mp3')
