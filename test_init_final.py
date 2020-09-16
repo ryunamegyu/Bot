@@ -1021,10 +1021,10 @@ class taskCog(commands.Cog):
 											color=0xff0000
 											)
 										await self.bot.get_channel(channel).send(embed=embed, tts=False)
-										try:
+										#try:
 										# 20200916
 										#	await PlaySound(self.bot.voice_clients[0], './sound/' + bossData[i][0] + '미입력.mp3')
-										except:
+										#except:
 											pass
 									################ 멍 보스 ################
 									else :
@@ -1041,10 +1041,10 @@ class taskCog(commands.Cog):
 											color=0xff0000
 											)
 										await self.bot.get_channel(channel).send(embed=embed, tts=False)
-										try:
+										#try:
 										# 20200916
 										#	await PlaySound(self.bot.voice_clients[0], './sound/' + bossData[i][0] + '멍.mp3')
-										except:
+										#except:
 											pass
 
 			await asyncio.sleep(1) # task runs every 60 seconds
