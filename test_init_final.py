@@ -1687,7 +1687,8 @@ class mainCog(commands.Cog):
 			for i in range(len(ladder)):
 				input_dict[f"{i+1}"] = ladder[i]
 				if i < num_cong:
-					output_list.append("o")
+				#	output_list.append("o")
+					output_list.append(f"{i}")
 				else:
 					output_list.append("x")
 
@@ -1739,10 +1740,22 @@ class mainCog(commands.Cog):
 
 			for x, y in result.items():
 				join_member.append(f"{x}:{input_dict[f'{x}']}")
-				if y == "o":
-					win_member.append(f"{input_dict[f'{x}']}")
-				else :
+				for zz in range(num_cong):
+					text = f"{zz}";
+					if y == text:
+						win_member.append(f"{zz}:{input_dict[f'{x}']}")
+					
+					#else :
+				if y == 'x':
 					lose_member.append(f"{input_dict[f'{x}']}")
+
+			# 당첨순서 번호로 정렬
+			win_member = sorted(win_member)	
+			# 미당첨자중 중복제거
+		#	loser_member = []
+		#	for v in lose_member:
+		#		if v not in loser_member:
+		#			loser_member.append(v)
 
 			embed = discord.Embed(title  = "🎲 사다리! 묻고 더블로 가!",
 				color=0x00ff00
