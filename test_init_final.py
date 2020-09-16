@@ -1025,7 +1025,7 @@ class taskCog(commands.Cog):
 										# 20200916
 										#	await PlaySound(self.bot.voice_clients[0], './sound/' + bossData[i][0] + '미입력.mp3')
 										#except:
-											pass
+										#	pass
 									################ 멍 보스 ################
 									else :
 										bossFlag[i] = False
@@ -1045,7 +1045,7 @@ class taskCog(commands.Cog):
 										# 20200916
 										#	await PlaySound(self.bot.voice_clients[0], './sound/' + bossData[i][0] + '멍.mp3')
 										#except:
-											pass
+										#	pass
 
 			await asyncio.sleep(1) # task runs every 60 seconds
 		
