@@ -2510,7 +2510,7 @@ class mainCog(commands.Cog):
 			random.shuffle(racing_unit)
 
 			field_size = 60
-			tmp_race_tab = 35 - len(racing_member)
+			tmp_race_tab = 13 - len(racing_member)	#원래 34
 			if len(racing_member) <= 1:
 				await ctx.send('레이스 인원이 2명보다 작습니다.')
 				return
@@ -2572,7 +2572,7 @@ class mainCog(commands.Cog):
 						cur_pos[i] = random_pos[i][j]
 						str_racing_field.append("".join(racing_field[i]))
 
-					await asyncio.sleep(0.5) 
+					await asyncio.sleep(1.0) 
 
 					for i in range(len(racing_member)):
 						output +=  str_racing_field[i] + '\n'
@@ -2614,7 +2614,7 @@ class mainCog(commands.Cog):
 					result_str += result[i][1] + "  " + result[i][0] + "  "
 					
 				#print(result)
-				await asyncio.sleep(0.5)
+				await asyncio.sleep(1.0)
 				return await result_race.edit(content = output + ':tada: 경주 종료!\n' + result_str)
 		else:
 			return
